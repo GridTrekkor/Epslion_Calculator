@@ -9,7 +9,6 @@ $(function() {
 
     $(".equalsButton").on("click", function() {
 
-
         $.ajax({
 
             type: "GET",
@@ -20,24 +19,12 @@ $(function() {
                 var $answer = $("<h1>The Answer is: " + response + "</h1>");
                 $(".toAppend").html($answer);
 
-                var returnedAnswer = response;
-                console.log("returnedAnswer = ", returnedAnswer);
-                $.ajax({
-                    // post response to database
-                    type: "POST",
-                    url: "/calculate/postAnswer",
-                    dataType: "text",
-                    data: returnedAnswer
-                }).done(function(response){
-                   console.log("We got a response: ", response);
-                });
-
+                console.log("returnedAnswer = ", response);
             }
         });
 
 
-
-    })
+    });
 
 
 });
